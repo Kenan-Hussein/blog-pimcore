@@ -1,0 +1,18 @@
+{% extends "layouts/default.html.twig" %}
+
+{% block content %}
+    <div class="container my-5">
+        <h1>{{ pimcore_input('headline') }}</h1>
+        <div class="col-lg-8 px-0">
+            <div class="fs-5">
+                {{ pimcore_wysiwyg('content') }}
+            </div>
+
+            <p>{{ pimcore_textarea('descriptions') }}</p>
+
+            <hr class="col-1 my-4">
+
+            {{ pimcore_link('button', {class: 'btn btn-primary'}) }}
+        </div>
+    </div>
+{%  endblock %}

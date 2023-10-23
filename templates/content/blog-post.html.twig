@@ -1,0 +1,62 @@
+{% extends "layouts/default.html.twig" %}
+{% block content %}
+
+    <h1>{{ pimcore_input("headline", {"width": 540}) }}</h1>
+
+
+{#        {% if editmode %}#}
+{#            {{ pimcore_relation("BlogPost") }}#}
+
+{#        {% else %}#}
+
+            {#        {% set blogPost = pimcore_relation("BlogPost").element %}#}
+
+            {% if data %}
+
+                <div class="row mb-2">
+                    {% for blogPost in data %}
+                    <div class="col-md-6">
+                        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                            <div class="col p-4 d-flex flex-column position-static">
+                                <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
+                                <h3 class="mb-0">{{ blogPost.title }}</h3>
+                                <div class="mb-1 text-body-secondary">Nov 12</div>
+                                <p class="card-text mb-auto">{{ blogPost.details|raw }}.</p>
+                                <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                                    Continue reading
+                                    <svg class="bi"><use xlink:href="#chevron-right"/></svg>
+                                </a>
+                            </div>
+                            <div class="col-auto d-none d-lg-block">
+                                {% if blogPost.image %}
+                                    {{ blogPost.image.thumbnail("blog-post-img").html|raw }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {%  endfor %}
+                    {% endif %}
+{#                    {% endif %}#}
+                </div>
+
+
+{#                {% for blogPost in data %}#}
+
+{#                    <h2>{{ blogPost.title }}</h2>#}
+
+{#                    <div class="content">#}
+{#                        {% if blogPost.image %}#}
+{#                            {{ blogPost.image.thumbnail("blog-post-img").html|raw }}#}
+{#                        {% endif %}#}
+
+{#                        {{ blogPost.details|raw }}#}
+{#                    </div>#}
+
+{#                {%  endfor %}#}
+{#            {% endif %}#}
+{#        {% endif %}#}
+
+
+
+
+{% endblock %}
