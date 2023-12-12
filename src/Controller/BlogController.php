@@ -19,19 +19,4 @@ class BlogController extends FrontendController
             'blogPost' => $object
         ];
     }
-
-    #[Template('content/blog-post-teaser.html.twig')]
-    public function renderLetBlogAction(Request $request): array
-    {
-        if ('asset' === $request->get('type')) {
-            $asset = Asset::getById((int) $request->get('id'));
-            if ('folder' === $asset->getType()) {
-                return [
-                    'assets' => $asset->getChildren()
-                ];
-            }
-        }
-
-        return [];
-    }
 }

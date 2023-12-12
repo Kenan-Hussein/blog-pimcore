@@ -6,14 +6,6 @@
     <h1>{{ pimcore_input('title') }}</h1>
     <h2>{{ pimcore_input('subTitle') }}</h2>
 
-    {{
-    pimcore_renderlet('myGallery', {
-        "controller" : "App\\Controller\\BlogController::renderLetBlogAction",
-        "title" : "Drag an object here",
-        "height" : 200
-    })
-    }}
-
     <div class="col-lg-8 px-0">
         <div class="fs-5">
             {{ pimcore_areablock('content_block') }}
